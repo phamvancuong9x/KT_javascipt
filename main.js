@@ -216,16 +216,23 @@ function oneNewArray(arrays1, arrays2) {
     ...addArray(arrays1, arrays2),
     ...addArray(arrays2, arrays1),
   ];
-  //   for (let i = 0; i < arrays1.length; i++) {
-  //     if (!isCheckArray(arrays2, arrays1[i])) {
-  //       newArrays = [...newArrays, arrays1[i]];
-  //     }
-  //   }
-  //   for (let i = 0; i < arrays2.length; i++) {
-  //     if (!isCheckArray(arrays1, arrays2[i])) {
-  //       newArrays = [...newArrays, arrays2[i]];
-  //     }
-  //   }
-
   return newArrays;
+}
+//  Bài 4: Cho 2 số nguyên dương m và n. Tạo ra 1 mảng 2 chiều m x n là các số nguyên
+//  liên tiếp (tính từ 1) theo kiểu ziczac. Ví dụ với m = 3 và n = 4 thì kết quả là mảng
+//  2 chiều như sau                 [ [1, 2, 3, 4], [8, 7, 6, 5], [9, 10, 11, 12] ].
+
+// =============================Xử lý OBJ========================
+// Bài 1: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
+// Viết hàm tính ra số tuổi trung bình của toàn bộ sinh viên.
+function handleAge(Arrays) {
+  let ageArray = [];
+  for (let i = 0; i < Arrays.length; i++) {
+    ageArray = [...ageArray, Arrays[i].age];
+  }
+  let totalAge = ageArray.reduce((total, curentvalue) => {
+    return total + curentvalue;
+  });
+  let result = totalAge / ageArray.length;
+  return result;
 }
