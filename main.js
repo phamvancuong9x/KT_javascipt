@@ -187,3 +187,45 @@ function maxArray(Arrays) {
   }
   return newArrays;
 }
+
+// Bài 3: Viết hàm so sánh mảng, truyền vào 2 mảng bất kỳ (chỉ chứa số nguyên),
+//  kết quả trả về là 1 mảng chỉ chứa những phần tử không đồng thời nằm trong 2
+// mảng truyền vào. Ví dụ truyền vào   [1, 2, 3] và [1, 3, 4, 5, 5] thì kết quả trả
+// về là mảng [2, 4, 5, 5].
+
+function isCheckArray(arrays, number) {
+  let result = false;
+  for (var i = 0; i < arrays.length; i++) {
+    if (arrays[i] == number) {
+      result = true;
+    }
+  }
+  return result;
+}
+function addArray(arrays1, arrays2) {
+  let newArrays = [];
+  for (let i = 0; i < arrays1.length; i++) {
+    if (!isCheckArray(arrays2, arrays1[i])) {
+      newArrays = [...newArrays, arrays1[i]];
+    }
+  }
+  return newArrays;
+}
+function oneNewArray(arrays1, arrays2) {
+  let newArrays = [
+    ...addArray(arrays1, arrays2),
+    ...addArray(arrays2, arrays1),
+  ];
+  //   for (let i = 0; i < arrays1.length; i++) {
+  //     if (!isCheckArray(arrays2, arrays1[i])) {
+  //       newArrays = [...newArrays, arrays1[i]];
+  //     }
+  //   }
+  //   for (let i = 0; i < arrays2.length; i++) {
+  //     if (!isCheckArray(arrays1, arrays2[i])) {
+  //       newArrays = [...newArrays, arrays2[i]];
+  //     }
+  //   }
+
+  return newArrays;
+}
