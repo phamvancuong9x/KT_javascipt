@@ -222,6 +222,8 @@ function oneNewArray(arrays1, arrays2) {
 //  liên tiếp (tính từ 1) theo kiểu ziczac. Ví dụ với m = 3 và n = 4 thì kết quả là mảng
 //  2 chiều như sau                 [ [1, 2, 3, 4], [8, 7, 6, 5], [9, 10, 11, 12] ].
 
+// ===================CHưa hiểu rõ đễ bài=======================
+
 // =============================Xử lý OBJ========================
 // Bài 1: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
 // Viết hàm tính ra số tuổi trung bình của toàn bộ sinh viên.
@@ -235,4 +237,50 @@ function handleAge(Arrays) {
   });
   let result = totalAge / ageArray.length;
   return result;
+}
+// Bài 2: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
+//  Viết hàm sắp xếp lại mảng trên theo tuổi học viên từ cao đến thấp.
+
+function sortArrayAge(Arrays) {
+  let terms;
+  for (let i = 0; i < Arrays.length; i++) {
+    for (let j = i + 1; j < Arrays.length; j++) {
+      if (+Arrays[i].age < +Arrays[j].age) {
+        terms = Arrays[i];
+        Arrays[i] = Arrays[j];
+        Arrays[j] = terms;
+      }
+    }
+  }
+  console.log(`Mảng sắp xếp tuổi học viên từ cao đến thấp : `, Arrays);
+  return Arrays;
+}
+// Bài 3: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
+// Viết hàm sắp xếp lại mảng trên theo tên học viên (không phân biệt hoa thường).
+function sortArrayName(Arrays) {
+  let terms;
+  for (let i = 0; i < Arrays.length; i++) {
+    for (let j = i + 1; j < Arrays.length; j++) {
+      if (Arrays[i].name.localeCompare(Arrays[j].name) == 1) {
+        terms = Arrays[i];
+        Arrays[i] = Arrays[j];
+        Arrays[j] = terms;
+      }
+    }
+  }
+  console.log(`Mảng sắp xếp theo tên học viên : `, Arrays);
+  return Arrays;
+}
+
+// Bài 4: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
+//  Viết hàm lọc ra những sinh viên nào có tên bắt đầu bằng chữ ''H'' hoặc ''h''.
+
+function filterArray(arrays) {
+  let newArrays = [];
+  for (let i = 0; i < arrays.length; i++) {
+    if (arrays[i].name[0] == "H" || arrays[i].name[0] == "h") {
+      newArrays = [...newArrays, arrays[i]];
+    }
+  }
+  console.log(newArrays);
 }
