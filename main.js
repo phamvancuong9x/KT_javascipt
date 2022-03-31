@@ -222,7 +222,21 @@ function oneNewArray(arrays1, arrays2) {
 //  liên tiếp (tính từ 1) theo kiểu ziczac. Ví dụ với m = 3 và n = 4 thì kết quả là mảng
 //  2 chiều như sau                 [ [1, 2, 3, 4], [8, 7, 6, 5], [9, 10, 11, 12] ].
 
-// ===================CHưa hiểu rõ đễ bài=======================
+function ziczacArray(m, n) {
+  let arrays = [];
+  let terms = true;
+  for (let i = 1; i < n * m; i = i + 4) {
+    if (terms) {
+      arrays = [...arrays, [i, i + 1, i + 2, i + 3]];
+      terms = false;
+    } else {
+      arrays = [...arrays, [i + 3, i + 2, i + 1, i]];
+      terms = true;
+    }
+  }
+  console.log(arrays);
+  return arrays;
+}
 
 // =============================Xử lý OBJ========================
 // Bài 1: Cho 1 mảng các object chứa thông tin sinh viên dạng { name: ''Huy'', age: 20 }.
