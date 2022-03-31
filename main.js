@@ -310,3 +310,15 @@ function showTime(times, x) {
   console.log(newTime);
   return newTime;
 }
+// Bài 3: Cho 1 số nguyên dương, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó
+// sao cho ra 1 số nhỏ nhất (giữ nguyên số chữ số). Ví dụ với tham số 530751 thì kết quả
+//  là 103557.
+
+function sortMinNumber(number) {
+  if (number < 0) return -1;
+  let arrays = number.toString().split("");
+  let newNumber = +arrays.sort((a, b) => a - b).join("");
+
+  console.log(newNumber);
+  return newNumber;
+}
