@@ -323,8 +323,8 @@ function timeFinish(x, y, h) {
     time++;
     h = h - x + y;
   }
-
   console.log(time);
+  return time;
 }
 
 // Bài 3: Cho 1 số nguyên dương, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó
