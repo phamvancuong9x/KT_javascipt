@@ -236,19 +236,16 @@ function ziczacArray(m, n) {
     newArrays = [];
     if (terms) {
       for (let j = 0; j < n; j++) {
-        console.log(n);
         newArrays = [...newArrays, i + j];
       }
-      arrays = [...arrays, newArrays];
       terms = false;
     } else {
-      console.log(n);
       for (let j = n - 1; j >= 0; j--) {
         newArrays = [...newArrays, i + j];
       }
-      arrays = [...arrays, newArrays];
       terms = true;
     }
+    arrays = [...arrays, newArrays];
   }
   console.log(arrays);
   return arrays;
