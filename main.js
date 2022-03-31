@@ -261,7 +261,11 @@ function sortArrayName(Arrays) {
   let terms;
   for (let i = 0; i < Arrays.length; i++) {
     for (let j = i + 1; j < Arrays.length; j++) {
-      if (Arrays[i].name.localeCompare(Arrays[j].name) == 1) {
+      if (
+        Arrays[i].name
+          .toUpperCase()
+          .localeCompare(Arrays[j].name.toUpperCase()) == 1
+      ) {
         terms = Arrays[i];
         Arrays[i] = Arrays[j];
         Arrays[j] = terms;
@@ -282,5 +286,27 @@ function filterArray(arrays) {
       newArrays = [...newArrays, arrays[i]];
     }
   }
-  console.log(newArrays);
+  console.log(
+    `Mảng đã lọc theo tên học viên bắt đầu bằng chữ h hoặc H là : `,
+    newArrays
+  );
+  return newArrays;
+}
+
+// ========================Tổng hợp===========================
+
+// Bài 1: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng ''giờ:phút:giây'
+// ', tham số thứ 2 là 1 số x <= 1000. Kết quả trả về là 1 chuỗi biểu thị thời gian sau
+//  x giây kể từ thời điểm t. Ví dụ với t = ''09:20:56'' và x = 7 thì kết quả là ''09:21:03''
+
+function showTime(times, x) {
+  let [hours, minutes, seconds] = times.split(":");
+  let totalSecond = +hours * 60 * 60 + +minutes * 60 + +seconds;
+  totalSecond += +x;
+  let newHour = Math.floor(totalSecond / 3600);
+  let newMinute = Math.floor((totalSecond - newHour * 3600) / 60);
+  let newSecond = Math.floor(totalSecond - newHour * 3600 - newMinute * 60);
+  let newTime = [newHour, newMinute, newSecond].join(":");
+  console.log(newTime);
+  return newTime;
 }
