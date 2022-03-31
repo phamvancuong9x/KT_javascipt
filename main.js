@@ -310,6 +310,23 @@ function showTime(times, x) {
   console.log(newTime);
   return newTime;
 }
+// Bài 2: Một con ốc sên leo từ đáy giếng lên miệng giếng, biết ban ngày leo được x mét,
+//  ban đêm lại bị tụt xuống y mét, hỏi sau bao nhiêu ngày thì ốc sên sẽ lên được đến
+//  miệng giếng. Viết hàm giải bài toán trên với 3 tham số h > 0 là chiều cao của giếng,
+//  x và y như mô tả trên (x > 0, y > 0).
+
+function timeFinish(x, y, h) {
+  if (x <= y) return -1;
+  if (x == h) return 1;
+  let time = 0;
+  while (h > 0) {
+    time++;
+    h = h - x + y;
+  }
+
+  console.log(time);
+}
+
 // Bài 3: Cho 1 số nguyên dương, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó
 // sao cho ra 1 số nhỏ nhất (giữ nguyên số chữ số). Ví dụ với tham số 530751 thì kết quả
 //  là 103557.
@@ -318,7 +335,6 @@ function sortMinNumber(number) {
   if (number < 0) return -1;
   let arrays = number.toString().split("");
   let newNumber = +arrays.sort((a, b) => a - b).join("");
-
   console.log(newNumber);
   return newNumber;
 }
