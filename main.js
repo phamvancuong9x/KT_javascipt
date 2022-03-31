@@ -222,15 +222,31 @@ function oneNewArray(arrays1, arrays2) {
 //  liên tiếp (tính từ 1) theo kiểu ziczac. Ví dụ với m = 3 và n = 4 thì kết quả là mảng
 //  2 chiều như sau                 [ [1, 2, 3, 4], [8, 7, 6, 5], [9, 10, 11, 12] ].
 
+function newArrays1(m) {
+  let newArrays = [];
+  for (let j = 0; j < m; j++) {
+    newArrays = [...newArrays, i + j];
+  }
+}
 function ziczacArray(m, n) {
   let arrays = [];
   let terms = true;
-  for (let i = 1; i < n * m; i = i + 4) {
+  let newArrays;
+  for (let i = 1; i < n * m; i = i + n) {
+    newArrays = [];
     if (terms) {
-      arrays = [...arrays, [i, i + 1, i + 2, i + 3]];
+      for (let j = 0; j < n; j++) {
+        console.log(n);
+        newArrays = [...newArrays, i + j];
+      }
+      arrays = [...arrays, newArrays];
       terms = false;
     } else {
-      arrays = [...arrays, [i + 3, i + 2, i + 1, i]];
+      console.log(n);
+      for (let j = n - 1; j >= 0; j--) {
+        newArrays = [...newArrays, i + j];
+      }
+      arrays = [...arrays, newArrays];
       terms = true;
     }
   }
